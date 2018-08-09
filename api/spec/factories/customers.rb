@@ -8,7 +8,7 @@ FactoryBot.define do
     sequence(:title) { Faker::Name.prefix }
     sequence(:country) { Faker::Address.country_code }
     sequence(:name) { Faker::Name.name }
-    sequence(:gender) { Faker::Gender.binary_type }
+    sequence(:gender) { Faker::Gender.type }
     sequence(:age) { Faker::Number.number(2) }
   end
 end
