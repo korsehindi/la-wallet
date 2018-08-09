@@ -21,7 +21,7 @@ class Customer < ApplicationRecord
             length: { minimum: 2, maximum: 50 }
   validates :title,
             presence: false,
-            length: { minimum: 2, maximum: 4 },
+            length: { minimum: 2, maximum: 5 },
             format: { with: VALID_TEXT_REGEX, message: "Text only, minimum length: 2, maximum length: 4." }
   validates :gender,
             presence: false,
