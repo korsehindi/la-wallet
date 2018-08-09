@@ -1,10 +1,14 @@
+require 'faker'
+
 FactoryBot.define do
   factory :customer do
-    name "MyString"
-    title "MyString"
-    gender "MyString"
-    age 1
-    country "MyString"
-    slug "MyString"
+    email Faker::Internet.unique.email
+    password_digest Faker::Internet.password
+    title Faker::Name.prefix
+    country Faker::Address.country_code
+    name Faker::Name.name
+    gender Faker::Gender.type
+    age Faker::Number.number(2)
+    slug Faker::Internet.slug
   end
 end

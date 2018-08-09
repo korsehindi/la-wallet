@@ -25,7 +25,7 @@ class Customer < ApplicationRecord
             format: { with: VALID_TEXT_REGEX, message: "Text only, minimum length: 2, maximum length: 4." }
   validates :gender,
             presence: false,
-            length: { maximum: 10 },
+            length: { maximum: 20 },
             format: { with: VALID_TEXT_REGEX, message: "Text only." }
   validates :age,
             presence: false,
