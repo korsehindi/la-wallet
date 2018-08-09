@@ -1,3 +1,5 @@
+![README Banner](banner.png)
+
 # La Wallet
 
 This is a Ruby on Rails e-wallet project (API only).
@@ -16,11 +18,31 @@ Required software:
 
 ## Models:
 
-| Customers | Wallets        |
-|-----------|----------------|
-| **id**    | **id**         |
-| name      | customer_id    |
-| title     | wallet_address |
-| gender    | wallet_balance |
-| age       | wallet_history |
-| country   |                |
+| Customer | Data type |
+|----------|-----------|
+| **id**   | **id**    |
+| name     | text      |
+| title    | text      |
+| gender   | text      |
+| age      | integer   |
+| country  | text      |
+| email    | string    |
+| password | string    |
+
+| Wallet      | Data type |
+|-------------|-----------|
+| **id**      | **id**    |
+| customer_id | integer   |
+| address     | string    |
+| balance     | decimal   |
+
+| Transaction | Data type |
+|-------------|-----------|
+| **id**      | **id**    |
+| wallet_id   | integer   |
+| receiver    | string    |
+| sender      | string    |
+| amount      | decimal   |
+| date        | datetime  |
+| message     | string    |
+
