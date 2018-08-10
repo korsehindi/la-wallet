@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    customers = Customer.all
+    customers = Customer.recent
     render json: customers
   end
 

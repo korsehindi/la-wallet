@@ -72,4 +72,17 @@ RSpec.describe Customer, type: :model do
       expect(customer).not_to be_valid, "should only be 2 or 3 chars long"
     end
   end
+
+  describe '.recent' do
+    it 'should list recent user first' do
+      old_customer = create :customer
+      newer_customer = create :customer
+      expect(described_class.recent).to eq(
+                                          [ newer_customer, old_customer ])
+      old_customer.update_column :created_at, Time.now
+      expect(described_class.recent).to eq(
+                                          [ old_customer, newer_customer ])
+                                         
+    end
+  end
 end

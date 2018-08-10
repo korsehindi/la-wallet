@@ -35,4 +35,6 @@ class Customer < ApplicationRecord
             length: { minimum: 2, maximum: 3 },
             presence: false,
             format: { with: VALID_COUNTRY_REGEX, message: "Country codes are 2 or 3 digits long." }
+
+  scope :recent, -> { order(created_at: :desc )}
 end
