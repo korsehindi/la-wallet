@@ -4,7 +4,7 @@ RSpec.describe CustomersController do
   describe '#index ' do
     subject { get :index }
 
-    it 'should return success responde' do
+    it 'should return success respond' do
       subject
       expect(response).to have_http_status(:ok)
     end
@@ -12,16 +12,15 @@ RSpec.describe CustomersController do
     it 'should return proper json' do
       create_list :customer, 2
       subject
-      pp json
       Customer.recent.each_with_index do |customer, index|
         expect(json_data[index]['attributes']).to eq({
-          "email" => customer.email,
-          "slug" => customer.slug,
           "name" => customer.name,
-          "title" => customer.title,
-          "gender" => customer.gender,
-          "age" => customer.age,
-          "country" => customer.country
+          "url" => customer.url,
+          "avatar-url" => customer.avatar_url,
+          "provider" => customer.provider,
+          "slug" => customer.slug,
+          "email" => customer.email,
+          "location" => customer.location
                                                      })
       end
     end

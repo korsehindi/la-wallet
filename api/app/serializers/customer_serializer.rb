@@ -1,3 +1,3 @@
 class CustomerSerializer < ActiveModel::Serializer
-  attributes :id, :email, :slug, :name, :title, :gender, :age, :country
+  attributes :id, :name, :url, :avatar_url, :provider, :slug, :email, :location
 end

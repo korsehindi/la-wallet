@@ -2,74 +2,83 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe Customer, type: :model do
-  describe '#validations' do
-    it 'should test that the factory is valid' do
-      expect(build :customer).to be_valid
+  describe "#validations" do
+    it 'should have valid factory' do
+      customer = build :customer
+      expect(customer).to be_valid
     end
 
-    it 'should validate the presence of the email' do
-      customer = build :customer, email: ''
+    it 'should validate presence of login' do
+      customer = build :customer, login: nil
       expect(customer).not_to be_valid
-      expect(customer.errors.messages[:email]).to include("can't be blank")
+      expect(customer.errors.messages[:login]).to include("can't be blank")
+    end
+
+    it 'should validate presence of name' do
+      customer = build :customer, name: nil
+      expect(customer).not_to be_valid
+      expect(customer.errors.messages[:name]).to include("can't be blank")
+    end
+
+    it 'should validate presence of url' do
+      customer = build :customer, url: nil
+      expect(customer).not_to be_valid
+      expect(customer.errors.messages[:url]).to include("can't be blank")
+    end
+
+    it 'should validate presence of avatar_url' do
+      customer = build :customer, avatar_url: nil
+      expect(customer).not_to be_valid
+      expect(customer.errors.messages[:avatar_url]).to include("can't be blank")
+    end
+
+    it 'should validate presence of provider' do
+      customer = build :customer, provider: nil
+      expect(customer).not_to be_valid
+      expect(customer.errors.messages[:provider]).to include("can't be blank")
+    end
+
+    it 'should validate presence of slug' do
+      customer = build :customer, slug: nil
+      expect(customer).not_to be_valid
+      expect(customer.errors.messages[:slug]).to include("can't be blank")
+    end
+
+    it 'should validate uniqueness of login' do
+      customer = create :customer
+      other_customer = build :customer, login: customer.login
+      expect(other_customer).not_to be_valid
+      other_customer.login = Faker::Crypto.unique.sha256
+      expect(other_customer).to be_valid
+    end
+
+    it 'should validate uniqueness of url' do
+      customer = create :customer
+      other_customer = build :customer, url: customer.url
+      expect(other_customer).not_to be_valid
+      other_customer.url = Faker::Internet.unique.url
+      expect(other_customer).to be_valid
+    end
+
+    it 'should validate uniqueness of slug' do
+      customer = create :customer
+      other_customer = build :customer, slug: customer.slug
+      expect(other_customer).not_to be_valid
+      other_customer.slug = Faker::Internet.unique.slug
+      expect(other_customer).to be_valid
+    end
+
+    it 'should validate uniqueness of email' do
+      customer = create :customer
+      other_customer = build :customer, email: customer.email
+      expect(other_customer).not_to be_valid
+      other_customer.email = Faker::Internet.unique.email
+      expect(other_customer).to be_valid
     end
 
     it 'should validate email length' do
       customer = build :customer, email: 'a@a'
       expect(customer).not_to be_valid, "expecting a valid email address"
-    end
-
-    it 'should validate uniqueness of the email' do
-      customer = create :customer
-      invalid_customer = build :customer, email: customer.email
-      expect(invalid_customer).not_to be_valid
-    end
-
-    it 'should validate the presence of the password_digest' do
-      customer = build :customer, password_digest: ''
-      expect(customer).not_to be_valid
-      expect(customer.errors.messages[:password_digest]).to include("can't be blank")
-    end
-
-    it 'should validate the presence of the slug' do
-      customer = build :customer, slug: ''
-      expect(customer).not_to be_valid
-      expect(customer.errors.messages[:slug]).to include("can't be blank")
-    end
-
-    it 'should validate uniqueness of the slug' do
-      customer = create :customer
-      invalid_customer = build :customer, slug: customer.slug
-      expect(invalid_customer).not_to be_valid
-    end
-
-    it 'should validate name only contains characters' do
-      customer = build :customer
-      expect(customer).to be_valid, "should only contain characters"
-    end
-
-    it 'should validate gender only contains characters' do
-      customer = build :customer, gender: Faker::Number.number(10)
-      expect(customer).not_to be_valid, "should only contain characters"
-    end
-
-    it 'should validate age only contains numbers' do
-      customer = build :customer
-      expect(customer).to be_valid, "should only contain numbers"
-    end
-
-    it 'should validate age length' do
-      customer = build :customer, age: Faker::Number.number(4)
-      expect(customer).not_to be_valid, "should only be 1-3 chars long"
-    end
-
-    it 'should validate country only contains characters' do
-      customer = build :customer, country: Faker::Number.number(10)
-      expect(customer).not_to be_valid, "should only contain numbers"
-    end
-
-    it 'should validate country length' do
-      customer = build :customer, country: Faker::Nation.nationality
-      expect(customer).not_to be_valid, "should only be 2 or 3 chars long"
     end
   end
 
@@ -82,7 +91,7 @@ RSpec.describe Customer, type: :model do
       old_customer.update_column :created_at, Time.now
       expect(described_class.recent).to eq(
                                           [ old_customer, newer_customer ])
-                                         
+      
     end
   end
 end
