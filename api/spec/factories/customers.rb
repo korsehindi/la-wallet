@@ -1,15 +1,14 @@
-require 'bcrypt'
 require 'faker'
 
 FactoryBot.define do
   factory :customer do
-    sequence(:email) { Faker::Internet.unique.email }
-    sequence(:slug) { Faker::Internet.unique.slug }
-    sequence(:password_digest) { BCrypt::Password.create(Faker::Internet.unique.password) }
-    sequence(:title) { Faker::Name.prefix }
-    sequence(:country) { Faker::Address.country_code }
+    sequence(:login) { Faker::Crypto.sha256 }
     sequence(:name) { Faker::Name.name }
-    sequence(:gender) { Faker::Gender.type }
-    sequence(:age) { Faker::Number.number(2) }
+    sequence(:url) { Faker::Internet.url }
+    sequence(:avatar_url) { Faker::Internet.url }
+    sequence(:provider) { Faker::App.name }
+    sequence(:slug) { Faker::Internet.slug }
+    sequence(:email) { Faker::Internet.unique.email }
+    sequence(:location) { Faker::Address.country }
   end
 end

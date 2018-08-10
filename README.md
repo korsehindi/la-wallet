@@ -26,6 +26,7 @@ Required software:
 | url        | `string`  | `false` |
 | avatar_url | `string`  | `false` |
 | provider   | `string`  | `false` |
+| slug       | `string`  | `false` |
 | email      | `string`  | `true`  |
 | location   | `text`    | `true`  |
 
