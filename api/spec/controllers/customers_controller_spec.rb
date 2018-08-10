@@ -12,6 +12,7 @@ RSpec.describe CustomersController do
     it 'should return proper json' do
       create_list :customer, 2
       subject
+      pp json
       Customer.recent.each_with_index do |customer, index|
         expect(json_data[index]['attributes']).to eq({
           "email" => customer.email,
@@ -31,6 +32,14 @@ RSpec.describe CustomersController do
       subject
       expect(json_data.first['id']).to eq(newer_customer.id.to_s)
       expect(json_data.first['id']).not_to eq(old_customer.id.to_s)
+    end
+
+    it 'should paginate results' do
+      create_list :customer, 3
+      get :index, params: { page: 2, per_page: 1 }
+      expect(json_data.length).to eq 1
+      expected_customer = Customer.recent.second.id.to_s
+      expect(json_data.first['id']).to eq(expected_customer)
     end
   end
 end
