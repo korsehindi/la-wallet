@@ -18,31 +18,32 @@ Required software:
 
 ## Models:
 
-| Customer | Data type |
-|----------|-----------|
-| **id**   | **id**    |
-| name     | text      |
-| title    | text      |
-| gender   | text      |
-| age      | integer   |
-| country  | text      |
-| email    | string    |
-| password | string    |
+| Customer   | Data type | NULL    |
+|------------|-----------|---------|
+| id         | `integer` | `false` |
+| login      | `string`  | `false` |
+| name       | `text`    | `false` |
+| url        | `string`  | `false` |
+| avatar_url | `string`  | `false` |
+| provider   | `string`  | `false` |
+| email      | `string`  | `true`  |
+| location   | `text`    | `true`  |
 
-| Wallet      | Data type |
-|-------------|-----------|
-| **id**      | **id**    |
-| customer_id | integer   |
-| address     | string    |
-| balance     | decimal   |
 
-| Transaction | Data type |
-|-------------|-----------|
-| **id**      | **id**    |
-| wallet_id   | integer   |
-| receiver    | string    |
-| sender      | string    |
-| amount      | decimal   |
-| date        | datetime  |
-| message     | string    |
+| Wallet      | Data type | NULL    |
+|-------------|-----------|---------|
+| id          | `integer` | `false` |
+| customer_id | `integer` | `false` |
+| address     | `string`  | `false` |
+| balance     | `decimal` | `false` |
+| alias       | `text`    | `true`  |
 
+
+| Transaction        | Data type  | NULL    |
+|--------------------|------------|---------|
+| id                 | `integer`  | `false` |
+| wallet_receiver_id | `integer`  | `false` |
+| wallet_sender_id   | `integer`  | `false` |
+| amount             | `decimal`  | `false` |
+| date               | `datetime` | `false` |
+| message            | `text`     | `true`  |
