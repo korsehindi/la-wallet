@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_10_055553) do
+ActiveRecord::Schema.define(version: 2018_08_10_060832) do
 
   create_table "customers", force: :cascade do |t|
-    t.string "login"
-    t.text "name"
-    t.string "url"
-    t.string "avatar_url"
-    t.string "provider"
+    t.string "login", null: false
+    t.text "name", null: false
+    t.string "url", null: false
+    t.string "avatar_url", null: false
+    t.string "provider", null: false
     t.string "email"
     t.text "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
+    t.string "slug", null: false
   end
 
 end
