@@ -18,6 +18,6 @@ class Wallet < ApplicationRecord
             numericality: { greater_than_or_equal_to: 0 }
   validates :alias,
             presence: false,
-            length: { maximum: 128 },
+            length: { maximum: 64 },
             format: { with: VALID_TEXT_REGEX }
 end
