@@ -1,4 +1,8 @@
 class Customer < ApplicationRecord
+  # ActiveRecord associations
+  has_many :wallets
+  has_many :transactions, through: :wallets
+
   # Constants
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

@@ -1,7 +1,10 @@
 class Wallet < ApplicationRecord
+  # ActiveRecord associations
+  belongs_to :customer
+  has_many :transactions
+
   # Constants
   VALID_TEXT_REGEX = /\A[a-zA-Z]+\z/
-  belongs_to :customer
 
   # Mandatory attributes
   validates :customer,

@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_10_213206) do
-
-  create_table "access_tokens", force: :cascade do |t|
-    t.string "token", null: false
-    t.integer "customer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_access_tokens_on_customer_id"
-  end
+ActiveRecord::Schema.define(version: 2018_08_11_235618) do
 
   create_table "customers", force: :cascade do |t|
     t.string "login", null: false
@@ -31,6 +23,18 @@ ActiveRecord::Schema.define(version: 2018_08_10_213206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "amount", null: false
+    t.datetime "date", null: false
+    t.text "message"
+    t.integer "sender_wallet_id"
+    t.integer "recipient_wallet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_wallet_id"], name: "index_transactions_on_recipient_wallet_id"
+    t.index ["sender_wallet_id"], name: "index_transactions_on_sender_wallet_id"
   end
 
   create_table "wallets", force: :cascade do |t|
