@@ -13,10 +13,11 @@ Required software:
 + Ruby on Rails v5.2.0
 
 ## Usage
-+ cd api
 + bundle (To install all the gems)
 + bundle exec rspec (to run unitary tests)
-+ bin/rails db:migrate
++ bin/rails db:create (created db)
++ bin/rails db:migrate (migrates db)
++ bin/rails db:seed (populates db)
 + bin/rails s (to start the server)
 
 ## Models and Active Record Associations:

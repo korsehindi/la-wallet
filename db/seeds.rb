@@ -2,8 +2,7 @@ require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-customer_count = 0
-150.times do |customer| 
+20.times do |customer| 
   Customer.create!([
                      {
                        "login" => Faker::Crypto.unique.md5,
@@ -16,13 +15,17 @@ customer_count = 0
                        "location" => Faker::Address.country
                      },
                    ])
+end
+
+customer_count = 1
+20.times do |wallet|
   Wallet.create!([
                    {
-                     "customer" => customer_count,
+                     "customer_id" => customer_count,
                      "address" => Faker::Crypto.unique.sha256,
-                     "balance" => Faker::Number.decimal(4, 2),
+                     "balance" => Faker::Number.decimal(rand(1..8), 2),
                      "alias" => Faker::Pokemon.unique.move
-                     }
+                   }
                  ])
   customer_count += 1
 end

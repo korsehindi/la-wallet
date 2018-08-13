@@ -8,8 +8,7 @@ class Wallet < ApplicationRecord
 
   # Mandatory attributes
   validates :customer_id,
-            presence: true,
-            uniqueness: true
+            presence: true
   validates :address,
             presence: true,
             uniqueness: true,
