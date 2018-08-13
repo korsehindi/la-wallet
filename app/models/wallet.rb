@@ -4,11 +4,12 @@ class Wallet < ApplicationRecord
   has_many :deals
 
   # Constants
-  VALID_TEXT_REGEX = /\A[a-zA-Z ]+\z/
+  VALID_TEXT_REGEX = /\A[a-zA-Z -]+\z/
 
   # Mandatory attributes
   validates :customer_id,
-            presence: true
+            presence: true,
+            uniqueness: true
   validates :address,
             presence: true,
             uniqueness: true,
@@ -20,4 +21,7 @@ class Wallet < ApplicationRecord
             presence: false,
             length: { maximum: 64 },
             format: { with: VALID_TEXT_REGEX }
+
+  # Order newly created wallets first
+  scope :recent, -> { order(created_at: :desc ) }
 end
