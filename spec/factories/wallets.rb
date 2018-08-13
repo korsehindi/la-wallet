@@ -4,7 +4,7 @@ require 'faker'
 FactoryBot.define do
   factory :wallet do
     sequence(:address) { Faker::Crypto.unique.sha256 }
-    sequence(:balance) { Faker::Number.decimal(4, 2).to_f }
+    sequence(:balance) { Faker::Number.decimal(4, 2) }
     sequence(:alias) { Faker::Pokemon.unique.move }
     association :customer_id, factory: :customer
     customer

@@ -7,7 +7,7 @@ customer_count = 0
   Customer.create!([
                      {
                        "login" => Faker::Crypto.unique.md5,
-                       "name" =>Faker::Name.name,
+                       "name" => Faker::ElderScrolls.name,
                        "url" => Faker::Internet.unique.url,
                        "avatar_url" => Faker::Internet.url,
                        "provider" => Faker::App.name,
@@ -20,8 +20,8 @@ customer_count = 0
                    {
                      "customer" => customer_count,
                      "address" => Faker::Crypto.unique.sha256,
-                     "balance" => Faker::Number.decimal(4),
-                     "alias" => Faker::Hacker.noun,
+                     "balance" => Faker::Number.decimal(4, 2),
+                     "alias" => Faker::Pokemon.unique.move
                      }
                  ])
   customer_count += 1

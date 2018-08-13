@@ -33,7 +33,6 @@ RSpec.describe WalletsController do
     it 'should paginate results' do
       create_list :wallet, 3
       get :index, params: { page: 2, per_page: 1 }
-      pp json
       expect(json_data.length).to eq 1
       expected_wallet = Wallet.recent.second.id.to_s
       expect(json_data.first['id']).to eq(expected_wallet)
