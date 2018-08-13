@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_08_11_235618) do
     t.string "slug", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "deals", force: :cascade do |t|
     t.decimal "amount", null: false
     t.datetime "date", null: false
     t.text "message"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2018_08_11_235618) do
     t.integer "recipient_wallet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipient_wallet_id"], name: "index_transactions_on_recipient_wallet_id"
-    t.index ["sender_wallet_id"], name: "index_transactions_on_sender_wallet_id"
+    t.index ["recipient_wallet_id"], name: "index_deals_on_recipient_wallet_id"
+    t.index ["sender_wallet_id"], name: "index_deals_on_sender_wallet_id"
   end
 
   create_table "wallets", force: :cascade do |t|

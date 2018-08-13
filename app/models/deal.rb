@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class Deal < ApplicationRecord
   # ActiveRecord Associations
   belongs_to :sender_wallet, class_name: "Wallet"
   belongs_to :recipient_wallet, class_name: "Wallet"
@@ -19,11 +19,11 @@ class Transaction < ApplicationRecord
   validates :sender_wallet_id,
             presence: true,
             exclusion: {
-              in: -> (transaction) { [transaction.recipient_wallet_id] }
+              in: -> (deal) { [deal.recipient_wallet_id] }
             }
   validates :recipient_wallet_id,
             presence: true,
             exclusion: {
-              in: -> (transaction) { [transaction.sender_wallet_id] }
+              in: -> (deal) { [deal.sender_wallet_id] }
             }
 end

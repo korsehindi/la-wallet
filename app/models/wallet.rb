@@ -1,7 +1,7 @@
 class Wallet < ApplicationRecord
   # ActiveRecord associations
   belongs_to :customer
-  has_many :transactions
+  has_many :deals
 
   # Constants
   VALID_TEXT_REGEX = /\A[a-zA-Z ]+\z/
