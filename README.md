@@ -43,6 +43,7 @@ The **REST API** for *la-wallet* is described below:
 
 ### Request
 `GET /customers/`
+
     curl -i -H 'Accept: application/json' http://localhost:3000/customers/
     
 ### Response
@@ -60,6 +61,7 @@ The **REST API** for *la-wallet* is described below:
 
 ### Request
 `GET /customers/?page=1&per_page=2`
+
     curl -i -H 'Accept: application/json' http://localhost:3000/customers\?page\=1\&per_page=2
     
 ### Response
@@ -77,6 +79,7 @@ The **REST API** for *la-wallet* is described below:
 
 ### Request
 `GET /wallets/`
+
     curl -i -H 'Accept: application/json' http://localhost:3000/wallets/
     
 ### Response
@@ -94,6 +97,7 @@ The **REST API** for *la-wallet* is described below:
 
 ### Request
 `GET /wallets/?page=1&per_page=2`
+
     curl -i -H 'Accept: application/json' http://localhost:3000/wallets\?page\=1\&per_page=2    
 
 ### Response
