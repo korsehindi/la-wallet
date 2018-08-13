@@ -9,7 +9,7 @@ require 'faker'
                        "name" => Faker::ElderScrolls.name,
                        "url" => Faker::Internet.unique.url,
                        "avatar_url" => Faker::Internet.url,
-                       "provider" => Faker::App.name,
+                       "provider" => Faker::Pokemon.name,
                        "slug" => Faker::Internet.unique.slug,
                        "email" => Faker::Internet.unique.email,
                        "location" => Faker::Address.country
