@@ -19,37 +19,7 @@ Required software:
 + bin/rails db:migrate
 + bin/rails s (to start the server)
 
-## Models:
+## Models and Active Record Associations:
 
-| Customer   | Data type | NULL    |
-|------------|-----------|---------|
-| id         | `integer` | `false` |
-| login      | `string`  | `false` |
-| name       | `text`    | `false` |
-| url        | `string`  | `false` |
-| avatar_url | `string`  | `false` |
-| provider   | `string`  | `false` |
-| slug       | `string`  | `false` |
-| email      | `string`  | `true`  |
-| location   | `text`    | `true`  |
-
-
-| Wallet      | Data type | NULL    |
-|-------------|-----------|---------|
-| id          | `integer` | `false` |
-| customer_id | `integer` | `false` |
-| address     | `string`  | `false` |
-| balance     | `decimal` | `false` |
-| alias       | `text`    | `true`  |
-
-
-| Transaction        | Data type  | NULL    |
-|--------------------|------------|---------|
-| id                 | `integer`  | `false` |
-| wallet_receiver_id | `integer`  | `false` |
-| wallet_sender_id   | `integer`  | `false` |
-| amount             | `decimal`  | `false` |
-| date               | `datetime` | `false` |
-| message            | `text`     | `true`  |
-
+![README Banner](er.png)
 [Trello board](https://trello.com/b/aW1hcmXf/la-wallet)
