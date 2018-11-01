@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'kaminari', '~> 1.1.1'
 
 # GitHub OAuth
-gem 'octokit', '~> 4.12.0'
+gem 'octokit', '~> 4.13.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
