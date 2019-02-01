@@ -41,7 +41,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Testing framework for Rails (replacing default Rails tests)
-  gem 'rspec-rails', '3.8.1'
+  gem 'rspec-rails', '3.8.2'
   # Fixture replacement for our tests
   gem 'factory_bot_rails', '4.11.1'
   # Library for generating fake data such as names, addresses, etc.
