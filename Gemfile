@@ -43,7 +43,7 @@ group :development, :test do
   # Testing framework for Rails (replacing default Rails tests)
   gem 'rspec-rails', '3.8.1'
   # Fixture replacement for our tests
-  gem 'factory_bot_rails', '4.11.1'
+  gem 'factory_bot_rails', '5.0.2'
   # Library for generating fake data such as names, addresses, etc.
   gem 'faker', '1.9.1'
 end
