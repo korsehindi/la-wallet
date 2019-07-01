@@ -45,7 +45,7 @@ group :development, :test do
   # Fixture replacement for our tests
   gem 'factory_bot_rails', '4.11.1'
   # Library for generating fake data such as names, addresses, etc.
-  gem 'faker', '1.9.1'
+  gem 'faker', '1.9.4'
 end
 
 group :development do
